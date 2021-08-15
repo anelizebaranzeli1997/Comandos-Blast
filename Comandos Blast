@@ -1,0 +1,9 @@
+#blastn
+blastn -query query.fasta -subject subject.fasta -outfmt 7 -out arquivo.results -num_threads 4 &
+grep -v "#" arquivo.results | sort -g -k 12,12 > arquivo2..results
+#blastx
+blastx -query inser_todos.fasta \
+          -subject proteinas.fasta -out insertos_proteinas.resultado \
+          -evalue 1e-5 -num_threads 4 -max_target_seqs 1 -outfmt 7
+grep -v "#" insertos_proteinas.resultado | sort -g -k 12,12 > insertos_proteinas_t.resultado
+
